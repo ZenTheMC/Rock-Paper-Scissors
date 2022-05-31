@@ -1,4 +1,4 @@
-function computerPlay(Rock, Paper, Scissors) {
+function computerPlay() {
     let rock = "Rock";
     let paper = "Paper";
     let scissors = "Scissors";
