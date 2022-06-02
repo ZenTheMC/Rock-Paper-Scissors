@@ -9,7 +9,7 @@ function computerPlay() {
         return paper;
     } else
         return scissors;
-    }
+    
 }
 
 function game() {
@@ -35,25 +35,25 @@ function game() {
             let draw = "It's a draw, neither player won";
     
             if (playerSelection === computerSelection) {
-            return draw;
+                return draw;
             } else if ((playerSelection = "Paper") && (computerSelection = "Rock")) {
-            playerWin++;
-            return paperbeatrockwin;
+                playerWin++;
+                return paperbeatrockwin;
             } else if ((playerSelection = "Rock") && (computerSelection = "Scissors")) {
-            playerWin++;
-            return rockbeatscissorswin;
+                playerWin++;
+                return rockbeatscissorswin;
             } else if ((playerSelection = "Scissors") && (computerSelection = "Paper")) {
-            playerWin++;
-            return scissorsbeatpaperwin;
+                playerWin++;
+                return scissorsbeatpaperwin;
             } else if ((computerSelection = "Paper") && (playerSelection = "Rock")) {
-            computerWin++;
-            return paperbeatrocklose;
+                computerWin++;
+                return paperbeatrocklose;
             } else if ((computerSelection = "Rock") && (playerSelection = "Scissors")) {
-            computerWin++;
-            return rockbeatscissorslose;
-            } else () {
-            computerWin++;
-            return scissorsbeatpaperlose;
+                computerWin++;
+                return rockbeatscissorslose;
+            } else {
+                computerWin++;
+                return scissorsbeatpaperlose;
             }
         }   
     }
