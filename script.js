@@ -28,7 +28,7 @@ function game() {
             let rockbeatscissorslose = "You lose, Rock beats Scissors";
             let scissorsbeatpaperlose = "You lose, Scissors beats Paper";
             let draw = "It's a draw, neither player won";
-        
+
             if (playerSelection === computerSelection) {
                 return draw;
             } else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
