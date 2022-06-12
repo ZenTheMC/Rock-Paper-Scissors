@@ -24,7 +24,9 @@ function game() {
         playerSelection = prompt("Player, please type in your selection");
         console.log("Player win totals " + playerWin);
         console.log("Computer win totals " + computerWin);
-        
+        playRound();
+        computerPlay();
+
         function playRound(playerSelection, computerSelection) {
             let paperbeatrockwin = "You win, Paper beats Rock";
             let rockbeatscissorswin = "You win, Rock beats Scissors";
@@ -36,19 +38,19 @@ function game() {
     
             if (playerSelection === computerSelection) {
                 return draw;
-            } else if ((playerSelection = "Paper") && (computerSelection = "Rock")) {
+            } else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
                 playerWin++;
                 return paperbeatrockwin;
-            } else if ((playerSelection = "Rock") && (computerSelection = "Scissors")) {
+            } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
                 playerWin++;
                 return rockbeatscissorswin;
-            } else if ((playerSelection = "Scissors") && (computerSelection = "Paper")) {
+            } else if ((playerSelection === "Scissors") && (computerSelection === "Paper")) {
                 playerWin++;
                 return scissorsbeatpaperwin;
-            } else if ((computerSelection = "Paper") && (playerSelection = "Rock")) {
+            } else if ((computerSelection === "Paper") && (playerSelection === "Rock")) {
                 computerWin++;
                 return paperbeatrocklose;
-            } else if ((computerSelection = "Rock") && (playerSelection = "Scissors")) {
+            } else if ((computerSelection === "Rock") && (playerSelection === "Scissors")) {
                 computerWin++;
                 return rockbeatscissorslose;
             } else {
