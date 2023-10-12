@@ -1,5 +1,9 @@
+// Univeral variables in for of arrays to have full scope //
+
 let winners = [];
 const choices = ["rock", "paper", "scissors"];
+
+// Reset game functionality, resetting win count + score text //
 
 function resetGame() {
   winners = [];
@@ -12,8 +16,9 @@ function resetGame() {
   document.querySelector(".reset").style.display = "none";
 }
 
+// Staring the game functionality by listening for click event on any of the images //
+
 function startGame() {
-  //play the game until someone wins 5 times
   let imgs = document.querySelectorAll("img");
   imgs.forEach((img) =>
     img.addEventListener("click", () => {
@@ -23,6 +28,8 @@ function startGame() {
     })
   );
 }
+
+// Playing 5 rounds to win the match and tracking win score //
 
 function playRound(playerChoice) {
   let wins = checkWins();
@@ -38,12 +45,11 @@ function playRound(playerChoice) {
   displayRound(playerChoice, computerChoice, winner);
   wins = checkWins();
   if (wins == 5) {
-    //display end results
-    //change the button to visible,
-    //change the text to display winner
     displayEnd();
   }
 }
+
+// Displaying the congrats text when you win/lose 5 times and resetting //
 
 function displayEnd() {
   let playerWins = winners.filter((item) => item == "Player").length;
@@ -58,6 +64,8 @@ function displayEnd() {
   document.querySelector(".reset").style.display = "flex";
 }
 
+// Displaying notifications for when you and computer chooses their pick //
+
 function displayRound(playerChoice, computerChoice, winner) {
   document.querySelector(".playerChoice").textContent = `You Chose: ${
     playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)
@@ -70,6 +78,8 @@ function displayRound(playerChoice, computerChoice, winner) {
   displayRoundWinner(winner);
 }
 
+// Displaying notifications for win/lose/tie for each round //
+
 function displayRoundWinner(winner) {
   if (winner == "Player") {
     document.querySelector(".winner").textContent = "You won the Round!";
@@ -81,6 +91,8 @@ function displayRoundWinner(winner) {
   }
 }
 
+// Tallying wins/losses/ties internally without display attached //
+
 function tallyWins() {
   const pWinCount = winners.filter((item) => item == "Player").length;
   const cWinCount = winners.filter((item) => item == "Computer").length;
@@ -90,8 +102,9 @@ function tallyWins() {
   document.querySelector(".ties").textContent = `Ties: ${ties}`;
 }
 
+// Function for computer picking their choice randomly and displaying it by highlighting their pick //
+
 function computerSelect() {
-  //todo - update the dom with the computer selection
   const choice = choices[Math.floor(Math.random() * choices.length)];
 
   document.querySelector(`.${choice}`).classList.add("active");
@@ -103,11 +116,15 @@ function computerSelect() {
   return choice;
 }
 
+// Function to check for wins internally with no display //
+
 function checkWins() {
   const pWinCount = winners.filter((item) => item == "Player").length;
   const cWinCount = winners.filter((item) => item == "Computer").length;
   return Math.max(pWinCount, cWinCount);
 }
+
+// Function to check for winner between the current picks with no display //
 
 function checkWinner(choice1, choice2) {
   if (
@@ -123,9 +140,14 @@ function checkWinner(choice1, choice2) {
   }
 }
 
+// Internal function to set total match wins for you or comp with no display //
+
 function setWins() {
   const pWinCount = winners.filter((item) => item == "Player").length;
   const cWinCount = winners.filter((item) => item == "Computer").length;
   const ties = winners.filter((item) => item == "Tie").length;
 }
+
+// Univeral function to emalgamate everything above and have run the game //
+
 startGame();
