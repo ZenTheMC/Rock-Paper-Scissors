@@ -9,7 +9,9 @@ body {
   overflow-y: hidden;
   color: white;
   text-shadow: 0 0 4px black;
+  padding: 20px 0;
 }
+
 .choices {
   display: flex;
   width: 80vw;
@@ -30,15 +32,22 @@ body {
   border-radius: 10px;
   max-height: 90px;
 }
+
 img {
   width: 90px;
   height: 90px;
 }
+
+.pImg {
+  transition: all 0.3s;
+}
+
 .pImg:hover {
   cursor: pointer;
   width: 110px;
   height: 110px;
 }
+
 .active {
   width: 110px;
   height: 110px;
@@ -47,6 +56,7 @@ img {
 .winner {
   width: 100%;
 }
+
 .reset {
   display: none;
   justify-content: center;
@@ -59,9 +69,11 @@ img {
   border: 1px solid black;
   border-radius: 5px;
 }
+
 .reset:hover {
   cursor: pointer;
 }
+
 .winnerDiv {
   display: flex;
   flex-direction: column;
